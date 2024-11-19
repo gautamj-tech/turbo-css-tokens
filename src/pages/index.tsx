@@ -1,6 +1,5 @@
-import { GetStaticProps } from 'next';
-import { useState } from 'react';
-import { getThemeTokens, Themes } from '../tokens/themes';
+import { useEffect, useState } from "react";
+import { getThemeTokens, Themes } from "../tokens/themes";
 
 export interface TokenEntry {
   tokenName: string;
@@ -11,10 +10,12 @@ export interface TokenEntry {
 export const fetchTokens = (theme: Themes): TokenEntry[] => {
   const tokens = getThemeTokens(theme);
   return Object.entries(tokens).map(([tokenName, cssVariable]) => {
+    const rootStyles = getComputedStyle(document.documentElement);
     let value = "";
     if (cssVariable.startsWith("var(") && cssVariable.endsWith(")")) {
-      const rootStyles = { /* provide default values */ };
-      value = rootStyles[cssVariable.slice(4, -1).trim()]?.trim() || cssVariable;
+      value = rootStyles
+        .getPropertyValue(cssVariable.slice(4, -1).trim())
+        .trim();
     } else {
       value = cssVariable;
     }
@@ -22,33 +23,47 @@ export const fetchTokens = (theme: Themes): TokenEntry[] => {
   });
 };
 
-export const getStaticProps: GetStaticProps = async () => {
-  const tokensList = fetchTokens(Themes.Base);
-
-  return {
-    props: {
-      tokensList,
-    },
-  };
-};
-
-const Home: React.FC<{ tokensList: TokenEntry[] }> = ({ tokensList }) => {
+const Home: React.FC = () => {
+  const [tokensList, setTokensList] = useState<TokenEntry[]>([]);
+  const [currentTheme, setCurrentTheme] = useState<Themes>(Themes.Base);
   const [searchQuery, setSearchQuery] = useState<string>("");
-  const [filteredTokens, setFilteredTokens] = useState(tokensList);
+
+  useEffect(() => {
+    const tokenData = fetchTokens(currentTheme);
+    setTokensList(tokenData);
+  }, [currentTheme]);
+
+  const handleThemeChange = (theme: Themes) => {
+    setCurrentTheme(theme);
+  };
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const query = event.target.value;
-    setSearchQuery(query);
-    setFilteredTokens(
-      tokensList.filter(token =>
-        token.value.toLowerCase().includes(query.toLowerCase())
-      )
-    );
+    setSearchQuery(event.target.value);
   };
+
+  // Filter tokens by value based on search query
+  const filteredTokens = tokensList.filter(token =>
+    token.value.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
     <div className="p-8">
       <h1 className="text-2xl font-bold mb-6">CSS Tokens</h1>
+
+      <div className="mb-4">
+        <label htmlFor="theme-selector" className="mr-2">Select Theme:</label>
+        <select
+          id="theme-selector"
+          value={currentTheme}
+          onChange={(e) => handleThemeChange(e.target.value as Themes)}
+          className="p-2 border border-gray-300"
+        >
+          <option value={Themes.Base}>Base</option>
+          <option value={Themes.Blue}>Blue</option>
+        </select>
+      </div>
+
+      {/* Search Input */}
       <div className="mb-4">
         <label htmlFor="search" className="mr-2">Search by Value:</label>
         <input
@@ -60,6 +75,7 @@ const Home: React.FC<{ tokensList: TokenEntry[] }> = ({ tokensList }) => {
           className="p-2 border border-gray-300"
         />
       </div>
+
       <table className="table-auto w-full border-collapse border border-gray-300">
         <thead>
           <tr>
