@@ -1,0 +1,25 @@
+const iconTokens = {
+  icon_size_12: "var(--icon-size-12)",
+  icon_size_14: "var(--icon-size-14)",
+  icon_size_16: "var(--icon-size-16)",
+  icon_size_20: "var(--icon-size-20)",
+  icon_size_24: "var(--icon-size-24)",
+  icon_size_28: "var(--icon-size-28)",
+  icon_size_32: "var(--icon-size-32)",
+  icon_size_40: "var(--icon-size-40)",
+  icon_size_48: "var(--icon-size-48)",
+  icon_size_6px: "6px",
+  icon_size_8px: "8px",
+  icon_size_10px: "10px",
+  icon_size_12px: "12px",
+  icon_size_14px: "14px",
+  icon_size_16px: "16px",
+  icon_size_20px: "20px",
+  icon_size_24px: "24px",
+  icon_size_28px: "28px",
+  icon_size_32px: "32px",
+  icon_size_40px: "40px",
+  icon_size_48px: "48px",
+};
+
+export { iconTokens };

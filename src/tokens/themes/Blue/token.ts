@@ -1,0 +1,130 @@
+const tokens = {
+  background_fill_default_fill_primary: "var(--base-white)",
+  background_fill_default_fill_secondary: "var(--blue-50)",
+  background_fill_default_fill_disabled: "var(--grey-50)",
+  background_fill_state_fill_error: "var(--red-500)",
+
+  background_fill_state_fill_error_secondary: "var(--red-50)",
+
+  background_fill_state_fill_warning: "var(--yellow-500)",
+  background_fill_state_fill_warning_secondary: "var(--yellow-50)",
+
+  background_fill_state_fill_success: "var(--green-500)",
+  background_fill_state_fill_success_secondary: "var(--green-50)",
+
+  background_fill_misc_fill_teal: "var(--teal-600)",
+  background_fill_misc_fill_teal_secondary: "var(--teal-50)",
+
+  background_fill_brand_fill_brand: "var(--blue-500)",
+  background_fill_brand_fill_brand_secondary: "var(--blue-50)",
+  background_fill_brand_fill_brand_hover: "var(--blue-700)",
+  background_fill_brand_fill_accent: "var(--blue-500)",
+  background_fill_brand_fill_accent_hover: "var(--blue-700)",
+  background_fill_brand_fill_accent_secondary: "var(--blue-50)",
+  background_fill_misc_fill_magenta: "var(--magenta-600)",
+  background_fill_misc_fill_magenta_secondary: "var(--magenta-50)",
+
+  background_fill_misc_fill_purple: "var(--purple-600)",
+
+  background_fill_misc_fill_purple_secondary: "var(--purple-50)",
+
+  background_fill_misc_fill_crimson: "var(--crimson-600)",
+  background_fill_misc_fill_crimson_secondary: "var(--crimson-50)",
+
+  background_fill_default_fill_inverse: "var(--grey-900)",
+  background_surface_default_surface_primary: "var(--base-white)",
+  background_surface_default_surface_secondary: "var(--grey-50)",
+  background_surface_default_surface_disabled: "var(--grey-50)",
+
+  background_surface_state_surface_error: "var(--red-50)",
+  background_surface_state_surface_warning: "var(--yellow-50)",
+  background_surface_state_surface_success: "var(--green-50)",
+  background_surface_brand_surface_brand: "var(--orange-50)",
+  background_surface_brand_surface_accent: "var(--sky-blue-50)",
+  background_surface_misc_surface_magenta: "var(--magenta-50)",
+  background_surface_misc_surface_teal: "var(--teal-50)",
+  background_surface_misc_surface_purple: "var(--purple-50)",
+  background_surface_misc_surface_crimson: "var(--crimson-50)",
+  background_surface_default_surface_inverse: "var(--grey-900)",
+
+  text_default_text_primary: "var(--grey-800)",
+  text_default_text_secondary: "var(--grey-500)",
+  text_default_text_tertiary: "var(--grey-300)",
+  text_default_text_disabled: "var(--grey-300)",
+  text_default_text_inverse: "var(--base-white)",
+  text_brand_text_brand: "var(--blue-500)",
+
+  text_brand_text_accent: "var(--blue-500)",
+  text_state_text_warning: "var(--yellow-600)",
+  text_state_text_warning_inverse: "var(--base-white)",
+  text_state_text_error: "var(--red-500)",
+  text_state_text_error_inverse: "var(--base-white)",
+  text_state_text_success: "var(--green-500)",
+
+  text_state_text_success_inverse: "var(--base-white)",
+  text_misc_text_magenta: "var(--magenta-600)",
+  text_misc_text_magenta_inverse: "var(--base-white)",
+  text_misc_text_teal: "var(--teal-600)",
+  text_misc_text_teal_inverse: "var(--base-white)",
+  text_misc_text_purple: "var(--purple-600)",
+  text_misc_text_purple_inverse: "var(--base-white)",
+  text_misc_text_crimson: "var(--crimson-600)",
+  text_misc_text_crimson_inverse: "var(--base-white)",
+
+  icon_default_icon_primary: "var(--blue-900)",
+  icon_default_icon_secondary: "var(--grey-500)",
+  icon_default_icon_inverse: "var(--base-white)",
+  icon_default_icon_disabled: "var(--grey-300)",
+
+  icon_brand_icon_brand: "var(--blue-500)",
+  icon_brand_icon_accent: "var(--teal-300)",
+
+  icon_state_icon_warning: "var(--yellow-500)",
+  icon_state_icon_warning_inverse: "var(--base-white)",
+
+  icon_state_icon_error: "var(--red-500)",
+  icon_state_icon_error_inverse: "var(--base-white)",
+
+  icon_state_icon_success: "var(--green-500)",
+  icon_state_icon_success_inverse: "var(--base-white)",
+  icon_misc_icon_teal: "var(--teal-600)",
+  icon_misc_icon_teal_inverse: "var(--base-white)",
+  icon_misc_icon_magenta: "var(--magenta-600)",
+  icon_misc_icon_magenta_inverse: "var(--base-white)",
+  icon_misc_icon_purple: "var(--purple-600)",
+  icon_misc_icon_purple_inverse: "var(--base-white)",
+  icon_misc_icon_crimson: "var(--crimson-600)",
+  icon_misc_icon_crimson_inverse: "var(--base-white)",
+
+  border_default_border_primary: "var(--grey-200)",
+  border_brand_border_brand: "var(--blue-500)",
+  border_brand_border_accent: "var(--blue-500)",
+  border_default_border_inverse: "var(--grey-900)",
+  border_default_border_disabled: "var(--grey-200)",
+  border_misc_border_teal: "var(--teal-400)",
+  border_misc_border_crimson: "var(--crimson-400)",
+  border_misc_border_purple: "var(--purple-400)",
+  border_misc_border_magenta: "var(--magenta-400)",
+
+  icon_brand_icon_brand_inverse: "var(--base-white)",
+  icon_brand_icon_accent_inverse: "var(--base-white)",
+  text_brand_text_brand_inverse: "var(--base-white)",
+  text_brand_text_accent_inverse: "var(--base-white)",
+  background_fill_state_fill_error_hover: "var(--red-700)",
+
+  text_brand_text_brand_hover: "var(--blue-700)",
+  icon_brand_icon_brand_hover: "var(--blue-700)",
+  border_state_border_error: "var(--red-300)",
+  border_state_border_warning: "var(--yellow-300)",
+  border_state_border_success: "var(--green-300)",
+  icon_default_icon_tertiary: "var(--grey-300)",
+  border_default_border_secondary: "var(--grey-300)",
+  background_fill_brand_fill_brand_secondary_hover: "var(--blue-100)",
+  background_fill_default_fill_tertiary: "var(--grey-100)",
+  border_default_border_white: "var(--base-white)",
+  background_fill_brand_fill_accent_secondary_hover: "var(--blue-100)",
+  background_fill_state_fill_error_secondary_hover: "var(--red-100)",
+  background_surface_overlay_primary: "var(--grey-alpha-600)",
+};
+
+export default tokens;

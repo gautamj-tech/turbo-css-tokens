@@ -1,7 +1,10 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -10,13 +13,51 @@
     "module": "esnext",
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "allowImportingTsExtensions": true,
     "jsx": "preserve",
     "incremental": true,
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+    "noImplicitAny": false,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "baseUrl": "./src",
+    "target": "ES2017"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "paths": {
+    "@/*": ["./src/*"],
+    "@components/*": ["./src/components/*"],
+    "@mobile/*": ["./src/components/mobile/*"],
+    "@web/*": ["./src/components/web/*"],
+    "@utils/*": ["./src/utils/*"],
+    "@hooks/*": ["./src/hooks/*"],
+    "@styles/*": ["./src/styles/*"],
+    "@types/*": ["./src/types/*"],
+    "@services/*": ["./src/services/*"],
+    "@lib/*": ["./src/lib/*"],
+    "@pages/*": ["./src/pages/*"],
+    "@layouts/*": ["./src/layouts/*"],
+    "@config/*": ["./src/config/*"],
+    "@constants/*": ["./src/constants/*"],
+    "@contexts/*": ["./src/contexts/*"],
+    "@assets/*": ["./src/assets/*"],
+    "@api/*": ["./src/api/*"],
+    "@turbo/*": ["../node_modules/@cars24/turbo-web/lib/*"]
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.mts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "src/tokens"
+  ]
 }
